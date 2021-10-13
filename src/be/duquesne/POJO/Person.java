@@ -1,4 +1,4 @@
-package be.duquesne;
+package be.duquesne.POJO;
 
 public abstract class Person 
 {
