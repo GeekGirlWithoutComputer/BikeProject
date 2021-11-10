@@ -1,5 +1,6 @@
 package be.duquesne.POJO;
 
-public class Descender {
+public class Descender 
+{
 
 }

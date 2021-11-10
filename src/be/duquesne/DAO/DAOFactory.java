@@ -2,13 +2,45 @@ package be.duquesne.DAO;
 
 import java.sql.Connection;
 
-import be.duquesne.POJO.Person;
+import be.duquesne.POJO.Calendar;
+import be.duquesne.POJO.Car;
+import be.duquesne.POJO.Category;
+import be.duquesne.POJO.Registration;
+import be.duquesne.POJO.Stroll;
 
-public class DAOFactory 
+public class DaoFactory extends AbstractDaoFactory
 {
-	protected static final Connection conn = Connexion.getInstance();
-	public DAO<Person> getPersonDAO()
+	protected static final Connection conn = be.duquesne.DAO.Connexion.getInstance();
+		
+
+	@Override
+	public PersonDAO getPersonneDAO() 
 	{
-		return new DAOPerson(conn);
+		return new PersonDAO(conn);
 	}
+	
+
+
+	
+
+	@Override
+	public DAO<Stroll> getStrollDAO() 
+	{
+		return new StrollDao(conn);
+	}
+
+
+	@Override
+	public DAO<Calendar> getSpectacleDAO() 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+
+
 }

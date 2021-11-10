@@ -14,8 +14,12 @@ private static Connection instance = null;
 		try
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "xxxxxxx";
-			instance = DriverManager.getConnection(url);
+			
+			
+			String url = "jdbc:oracle:thin:@//193.190.64.10:1522/XEPDB1";
+			instance = DriverManager.getConnection(url,"STUDENT03_27","Debo7684");
+			
+			
 		}
 		catch(ClassNotFoundException ex)
 		{

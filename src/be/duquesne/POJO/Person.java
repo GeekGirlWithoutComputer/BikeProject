@@ -1,7 +1,13 @@
 package be.duquesne.POJO;
 
+import be.duquesne.DAO.AbstractDaoFactory;
+import be.duquesne.DAO.PersonDAO;
+
 public abstract class Person 
 {
+	private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
+	
+	protected final PersonDAO pDAO = dao.getPersonneDAO();
 	//    attributes
 	protected String numPerson;
 	protected String name;
@@ -9,6 +15,8 @@ public abstract class Person
 	protected String telephon;
 	protected String password;
 	protected String email;
+	protected String statut;
+	protected String adress;
 	//getters setters 
 	public String getNumPerson() 
 	{
@@ -58,8 +66,28 @@ public abstract class Person
 	{
 		this.email = email;
 	}
+	
+	public String getStatut() {
+		return statut;
+	}
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
 	//builders
 	public Person() {}
+	public Person(String password, String email) 
+	{
+		this.password = password;
+		this.email = email;
+	}
+	
+	public String getAdress() 
+	{
+		return adress;
+	}
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
 	public Person(String numPerson, String name, String firstname, String telephon, String password, String email) 
 	{
 		super();
@@ -70,9 +98,10 @@ public abstract class Person
 		this.password = password;
 		this.email = email;
 	}
-	//methods
-	//no body in the abstract class, children will redefine it
-	 public  abstract  void Login() ;
+	public boolean login() 
+	{
+		return this.pDAO.login(this);
+	}
 	@Override
 	public String toString() 
 	{
@@ -80,6 +109,11 @@ public abstract class Person
 				+ ", email=" + email + "]";
 	}
 	 
+	public boolean register() 
+	{
+		
+		return false;
+	}
 	 
 	 
 	

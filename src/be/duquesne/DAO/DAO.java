@@ -1,19 +1,38 @@
 package be.duquesne.DAO;
 
-import java.sql.Connection;
 import java.util.List;
 
-public abstract class DAO<T> 
+public interface  DAO<T> 
 {
-	protected Connection connect = null;
+	public  boolean create(T obj);
+	/****************************************************************************************************
+	 * 
+	 * 
+	 * 		IMPOSSIBLE DE CREER UNE COMMANDE SANS ID PERSONNE 
+	 * 		IMPOSSIBLE DE CREER UNE PLACE SANS ID COMMANDE 
+	 * 		ET COMME PAS DE DOUBLE SENS J AI PAS LE CHOIX
+	 * 		J AI TESTE MILLES TRUCS ET EN VAIN !!!!!!!!!!!!!!!!!!!!!!!!!
+	 * 		ALORS JE CUSTOMISE LE DAO !!!!!!!!!!!!!!!!!!
+	 * 
+	 * ****************************************************************************************************/
+	public  boolean create(T obj,int id );
+	//besoin aussi pr la creation d une representation
+	public int findByLast(T s);
+	
+	public  boolean delete(T obj);
+	
+	
+	public  boolean update(T obj);
+	
+	public  T find(T obj);
+	
+	public  List<?> findAll(T obj);
+	
+	
+	
+	
 
-    public DAO(Connection conn)
-    {
-        this.connect = conn;
-    }
-    public abstract boolean create(T obj);
-    public abstract boolean delete(T obj);
-    public abstract boolean update(T obj);
-    public abstract T find(long id);
-    public abstract List<T> findAll();
+	
+
 }
+
