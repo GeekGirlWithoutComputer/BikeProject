@@ -2,7 +2,9 @@ package be.duquesne.DAO;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +23,33 @@ public class StrollDao implements DAO<Stroll>
 		con_ = con;
 		
 	}
-//INSERT INTO "STUDENT03_27"."STROLL_" (NAME, PLACEOFDEPARTUNE, DATEOFDEPARTUNE) VALUES ('vtthard', 'charleroi centre', '10-12-2021')
-	//INSERT INTO "STUDENT03_27"."STROLL_" (NAME, COST, PLACEOFDEPARTUNE, DATEOFDEPARTUNE) VALUES ('jjj', '55', 'lll', TO_DATE('2001-12-12 00:00:00', 'YYYY-MM-DD HH24:MI:SS'))
+//INSERT INTO "STUDENT03_27"."STROLL_" (NAME, COST, PLACEOFDEPARTUNE, DATEOFDEPARTUNE) VALUES ('hello', '5', 'huy', TO_DATE('2021-12-30 02:32:49', 'YYYY-MM-DD HH24:MI:SS'))
 
 
 	@Override
-	public boolean create(Stroll obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean create(Stroll s) 
+	{
+		try 
+		{
+			PreparedStatement state = con_.prepareStatement
+        			("INSERT INTO Stroll_(NAME, COST, PLACEOFDEPARTUNE, DATEOFDEPARTUNE)"
+        					+ "VALUES (?,?,?,?)");
+        		state.setString(1, s.getNameStroll());
+        		state.setDouble(2,s.getCost());
+	            state.setString(3,s.getPlaceOfDepartune());
+	            state.setDate(4, s.getDateOfDepartune());
+	            state.execute();
+
+			
+		}
+
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -68,6 +89,8 @@ public class StrollDao implements DAO<Stroll>
 		
 			Statement stm = null;
 			ResultSet rs = null;
+			//Date date = Date.valueOf(result.getString("date"));
+			
 			try
 			{
 				 sql = "Select * From STROLL_ ";
@@ -79,12 +102,7 @@ public class StrollDao implements DAO<Stroll>
 					liste.add(new Stroll(
 							
 							
-							/*
-							 * private int numStroll;
-	private String placeOfDepartune;
-	private Double cost;
-	private Date dateOfDepartune;
-	private String nameStroll;*/
+							
 							rs.getInt(1),
 							rs.getString(2),
 							rs.getDouble(3),

@@ -18,7 +18,7 @@ public class MainActivity extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainActivity frame = new MainActivity();
+					StartActivity frame = new StartActivity();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -20,6 +20,18 @@ import javax.swing.border.EmptyBorder;
 
 public class StartActivity extends JFrame 
 {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					StartActivity frame = new StartActivity();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/*****************************************************************************************************
 	 *  les attributs 
@@ -73,7 +85,7 @@ public class StartActivity extends JFrame
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Login page = new Login ("");
+				LoginByStatut page = new LoginByStatut();
 				page.setVisible(true);
 				activity.dispose();
 			}

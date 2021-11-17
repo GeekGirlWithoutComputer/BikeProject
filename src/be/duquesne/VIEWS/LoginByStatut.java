@@ -49,26 +49,38 @@ public class LoginByStatut extends JFrame
 			{
 				Image img = Toolkit.getDefaultToolkit()
 						.getImage(MainActivity.class
-								.getResource("/be/duquesne/IMG/c.jpg")
+								.getResource("/be/condorcet/duquesne/IMG/t.jpg")
 								);
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
 			}
 		};
-		panel_1.setBounds(10, 11, 434, 331);
+		panel_1.setBounds(10, 0, 434, 331);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
+		
+		
+		
+		
 		
 		panel_1.setBounds(22, 10, 662, 371);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
-		JButton btnMember = new JButton("MEMBER");
-		btnMember.setEnabled(false);
-		btnMember.setForeground(UIManager.getColor("CheckBox.focus"));
-		btnMember.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
-		btnMember.setBackground(Color.DARK_GRAY);
-		btnMember.setBounds(60, 100, 135, 57);
-		panel_1.add(btnMember);
-		btnMember.addActionListener(new ActionListener() 
+		/***********************************************************************************************************
+		 * 
+		 * 
+		 * pour se connecter il faudra choisir son statut 
+		 * si la personne se trompe mais quelle rentre qd meme des infos presentes ds la db ca ne marchera pas 
+		 * car on verif sur le speud, le mdp et le statut 
+		 * 
+		 * 
+		 * 
+		 * **********************************************************************************************************/
+		
+		JButton btnClient = new JButton("MEMBER");
+		btnClient.setForeground(UIManager.getColor("CheckBox.focus"));
+		btnClient.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnClient.setBackground(Color.DARK_GRAY);
+		btnClient.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -77,14 +89,20 @@ public class LoginByStatut extends JFrame
 				activity.dispose();
 			}
 		});
+		btnClient.setBounds(98, 168, 147, 65);
+		panel_1.add(btnClient);
+		
+		
 		
 		JButton btnRetour = new JButton("RETOUR MENU PRINCIPAL");
 		btnRetour.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
 		btnRetour.setBounds(141, 319, 485, 48);
 		btnRetour.setBackground(Color.RED);
 		btnRetour.setForeground(UIManager.getColor("CheckBox.darkShadow"));
-		btnRetour.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnRetour.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
 				StartActivity page = new StartActivity();
 				page.setVisible(true);
 				activity.dispose();
@@ -104,16 +122,9 @@ public class LoginByStatut extends JFrame
 		lblNewLabel.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 22));
 		lblNewLabel.setBounds(31, 17, 598, 72);
 		panel_1.add(lblNewLabel);
-
 		
-		JButton btnManager = new JButton("TREASURER");
-		btnManager.setEnabled(false);
-		btnManager.setBackground(Color.DARK_GRAY);
-		btnManager.setForeground(UIManager.getColor("CheckBox.focus"));
-		btnManager.setFont(new Font("Yu Gothic UI", Font.PLAIN, 15));
-		btnManager.setBounds(450, 100, 135, 57);
-		panel_1.add(btnManager);
-		btnManager.addActionListener(new ActionListener() 
+		JButton btnNewButton = new JButton("TREASURER");
+		btnNewButton.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -122,7 +133,18 @@ public class LoginByStatut extends JFrame
 				activity.dispose();
 			}
 		});
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setForeground(UIManager.getColor("CheckBox.focus"));
+		btnNewButton.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnNewButton.setBounds(462, 168, 147, 65);
+		panel_1.add(btnNewButton);
+		
+		
+		
+		
+		
+		
 
+		
+		}	
 	}
-
-}

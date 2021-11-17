@@ -16,9 +16,9 @@ public abstract class  AbstractDaoFactory
 
 		public abstract DAO<Stroll> getStrollDAO();
 
-		
+		public abstract DAO<Category> getCategoryDAO();
 
-		public abstract DAO<Calendar> getSpectacleDAO();
+		public abstract DAO<Calendar> getCalendarDAO();
 
 		
 

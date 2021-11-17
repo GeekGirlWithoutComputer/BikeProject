@@ -109,21 +109,21 @@ public class StrollList extends JFrame
 		
 		Spp = new JComboBox<Stroll>();
 		Spp.setBackground(Color.LIGHT_GRAY);
-		Spp.setBounds(10, 32, 404, 45);
+		Spp.setBounds(10, 11, 404, 30);
 		panel_1.add(Spp);
 		
 		test = new JLabel("\" \" ");
 	       test.setForeground(new Color(245, 255, 250));
 	       test.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 12));
 	       test.setBackground(UIManager.getColor("Button.highlight"));
-	       test.setBounds(10, 211, 221, 30);
+	       test.setBounds(189, 157, 193, 30);
 	       panel_1.add(test);
 	       
 	        genre = new JLabel("\" \"");
 	        genre.setForeground(new Color(240, 255, 255));
 	        genre.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 12));
 	        genre.setBackground(UIManager.getColor("Button.highlight"));
-	        genre.setBounds(10, 186, 251, 14);
+	        genre.setBounds(25, 129, 251, 14);
 	        panel_1.add(genre);
 	        
 	         
@@ -131,11 +131,11 @@ public class StrollList extends JFrame
 	         libel.setForeground(new Color(240, 255, 255));
 	         libel.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
 	         libel.setBackground(UIManager.getColor("Button.highlight"));
-	         libel.setBounds(10, 150, 427, 25);
+	         libel.setBounds(11, 69, 207, 25);
 	         panel_1.add(libel);
 	         
 	         txydescr = new TextArea();
-	         txydescr.setBounds(20, 247, 387, 78);
+	         txydescr.setBounds(25, 162, 146, 79);
 	         panel_1.add(txydescr);
 	         
 	        JButton btnRetour = new JButton("RETOUR MENU PRINCIPAL");

@@ -31,10 +31,20 @@ public class DaoFactory extends AbstractDaoFactory
 
 
 	@Override
-	public DAO<Calendar> getSpectacleDAO() 
+	public DAO<Calendar> getCalendarDAO() 
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+
+	@Override
+	public DAO<Category> getCategoryDAO() 
+	{
+		return new CategoryDAO(conn);
 	}
 
 

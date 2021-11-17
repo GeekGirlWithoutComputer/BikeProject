@@ -16,25 +16,33 @@ public class Stroll
 	private int numStroll;
 	private String placeOfDepartune;
 	private Double cost;
+	
 	private Date dateOfDepartune;
 	private String nameStroll;
-	public Stroll() 
+	
+	public Stroll( int numStroll,String placeOfDepartune, Double cost, String nameStroll, Date dateOfDepartune) 
 	{
 		
-	}
-	public Stroll(int numStroll, String placeOfDepartune, Double cost, String nameStroll, Date dateOfDepartune) 
-	{
-		super();
-		this.numStroll = numStroll;
+		this.numStroll=numStroll;
 		this.placeOfDepartune = placeOfDepartune;
 		this.cost = cost;
 		this.dateOfDepartune = dateOfDepartune;
 		this.nameStroll = nameStroll;
 	}
+	public Stroll( String placeOfDepartune, Double cost, String nameStroll, Date d) 
+	{
+		
+		
+		this.placeOfDepartune = placeOfDepartune;
+		this.cost = cost;
+		this.dateOfDepartune = d;
+		this.nameStroll = nameStroll;
+	}
 	public int getNumStroll() {
 		return numStroll;
 	}
-	public void setNumStroll(int numStroll) {
+	public void setNumStroll(int numStroll) 
+	{
 		this.numStroll = numStroll;
 	}
 	public String getPlaceOfDepartune() {
@@ -63,11 +71,14 @@ public class Stroll
 	}
 	@Override
 	public String toString() {
-		return "Stroll [placeOfDepartune=" + placeOfDepartune + ", cost=" + cost + ", dateOfDepartune="
-				+ dateOfDepartune + ", nameStroll=" + nameStroll + "]";
+		return " " +  nameStroll +  "   " + placeOfDepartune + " " + cost + "€" + " " + "le : "+this.dateOfDepartune
+				;
 	}
 	
-	
+	public boolean AddStroll() 
+	{
+		return this.sDAO.create(this);
+	}
 	
 	public List<Stroll> findAll()
 	{

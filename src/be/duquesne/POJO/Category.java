@@ -1,7 +1,16 @@
 package be.duquesne.POJO;
 
-public abstract class Category 
+import java.util.List;
+
+import be.duquesne.DAO.AbstractDaoFactory;
+import be.duquesne.DAO.CategoryDAO;
+import be.duquesne.DAO.PersonDAO;
+
+public  class Category 
 {
+private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
+	
+	protected final CategoryDAO cDAO=(CategoryDAO) dao.getCategoryDAO();
 	public enum TypesMember
 	{
 		CYCLO,
@@ -13,9 +22,83 @@ public abstract class Category
 		HIKER,
 		TRIALIST,
 		DESCENDER,
-		BASE   // si cyclo et pas vtt
+		CYCLO ,
+		VTT;
+
+		
 	};
 	private TypesVtt type;
 	private TypesMember typeVelo;
 	private int codeCat;
+	private String name;
+	public Category() 
+	{
+		
+	}
+	
+	public Category( int codeCat,TypesVtt type) 
+	{
+		
+		this.type = type;
+		this.codeCat = codeCat;
+	}
+	public Category( int codeCat,String name) 
+	{
+		
+		this.name=name;
+		this.codeCat = codeCat;
+	}
+
+	public String getType() 
+	{
+		return this.type.toString();
+	}
+	public void setType(TypesVtt type) 
+	{
+		this.type = type;
+	}
+	public TypesMember getTypeVelo() 
+	{
+		return typeVelo;
+	}
+	public void setTypeVelo(TypesMember typeVelo) 
+	{
+		this.typeVelo = typeVelo;
+	}
+	public int getCodeCat() {
+		return codeCat;
+	}
+	public void setCodeCat(int codeCat) {
+		this.codeCat = codeCat;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Category> findAll ()
+	{
+		return (List<Category>) cDAO.findAll(this);
+				
+	}
+	public Category find()  
+	{
+		return this.cDAO.find(this);
+	}
+	public int findId()  
+	{
+		return this.cDAO.id(this);
+	}
+	@Override
+	public String toString()
+	{
+		return "  " +  "[" + codeCat + "] " +""+this.type;//**no name 
+	}
+	
+	
+	
 }

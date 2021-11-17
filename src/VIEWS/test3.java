@@ -40,18 +40,7 @@ import javax.swing.JRadioButton;
 public class test3 extends JFrame {
 
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					test3 frame = new test3();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 	
 	private JPanel contentPane;
 	private Person personne;
@@ -59,7 +48,7 @@ public class test3 extends JFrame {
 	private JPanel panel;
 	private JLabel labelBronze, labelOr, labelArgent, labelDiamant;
 	private JLabel labelArtiste;
-	private TypesVtt place = TypesVtt.BASE;
+	private TypesVtt place = TypesVtt.CYCLO;
 	private TypesMember p;
 	private int maxParPersonne;
 	private JSpinField representationHeureMax, representationHeureMin, fieldBronze, fieldBase, fieldArgent, fieldOr,
@@ -153,21 +142,29 @@ public class test3 extends JFrame {
 	private void createChoise() {
 	
 		
-		 r1 = new JRadioButton("hiker");
-		r1.setBounds(292, 457, 109, 23);
+		r1 = new JRadioButton("hiker");
+		r1.setBounds(292, 366, 109, 23);
 		panel.add(r1);
 		
 		 r2 = new JRadioButton("Descender");
-		r2.setBounds(292, 500, 109, 23);
+		r2.setBounds(292, 392, 109, 23);
 		panel.add(r2);
 		
 		r3 = new JRadioButton("Trialist");
-		r3.setBounds(292, 553, 109, 23);
+		r3.setBounds(292, 418, 109, 23);
 		panel.add(r3);
 		// pr ne pas tous les selectionner  radio groupe
 		 bG.add(r1);
 		 bG.add(r2);
 		 bG.add(r3);
+		 
+		 JButton btnNewButton = new JButton("Valider");
+		 btnNewButton.setBounds(249, 594, 188, 23);
+		 panel.add(btnNewButton);
+		 
+		 JButton btnNewButton_1 = new JButton("enregistrer votre vehicule");
+		 btnNewButton_1.setBounds(66, 487, 299, 23);
+		 panel.add(btnNewButton_1);
 
 		
 
@@ -252,6 +249,4 @@ public class test3 extends JFrame {
 		r2.setVisible(true);
 		r3.setVisible(true);
 	}
-
-	
 }

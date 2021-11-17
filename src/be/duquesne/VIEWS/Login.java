@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import VIEWS.test3;
 import be.duquesne.POJO.*;
 
 
@@ -30,6 +32,8 @@ import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame
 {
+	
+	
 
 	private JPanel contentPane;
 	/*l connexion se fait sur un email et un mdp*/
@@ -38,8 +42,9 @@ public class Login extends JFrame
 
 	/* soit un membre soit le tresorerie c est pourquoi il faut les dissocier afin d afficher le menu adapte a celui
 	 * qui va se connecter */
-	public Login(String statut ) 
+	public Login(String statut) 
 	{
+		
 		Login activity = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 708, 431);
@@ -89,9 +94,48 @@ public class Login extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				Person member = new Member(password.getText(),email.getText());
-				Person treasurer = new Treasurer(password.getText(),email.getText());
+				
+				
+				Person personne = new Person();
 				boolean oki= false;
+				
+				
+				try
+				{
+					personne.setEmail(email.getText());
+					personne.setStatut(statut);
+					personne.setPassword(password.getText());
+					oki = personne.login();
+				} 
+				catch (Exception e1) 
+				{
+					e1.printStackTrace();
+				}
+				
+				if (oki) 
+				{
+					Person find = personne.find();
+					find.setStatut(statut);
+					Menu menu  = new Menu(find);
+					menu.setVisible(true);
+					activity.dispose();
+				} 
+				else 
+				{
+					
+					
+					JOptionPane.showMessageDialog(null, password.getText());
+					JOptionPane.showMessageDialog(null, email.getText());
+					JOptionPane.showMessageDialog(null, statut);
+						
+					
+					JOptionPane.showMessageDialog(null, "log incorrects ");
+				}
+
+			
+						
+						
+					
 			}
 		});
 		btnConnect.setForeground(Color.WHITE);
