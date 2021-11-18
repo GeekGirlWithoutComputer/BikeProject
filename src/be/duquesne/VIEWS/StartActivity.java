@@ -59,7 +59,7 @@ public class StartActivity extends JFrame
 			{
 				Image img = Toolkit.getDefaultToolkit()
 						.getImage(MainActivity.class
-								.getResource("/be/condorcet/duquesne/IMG/s.png")
+								.getResource("/be/duquesne/IMG/s.png")
 								);
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
 			}
@@ -68,9 +68,9 @@ public class StartActivity extends JFrame
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
-		JLabel lblNewLabel_1 = new JLabel("MENU   PRINCIPAL ");
+		JLabel lblNewLabel_1 = new JLabel("ACCUEIL");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(10, 39, 548, 56);
+		lblNewLabel_1.setBounds(288, 11, 369, 59);
 		lblNewLabel_1.setForeground(Color.RED);
 		lblNewLabel_1.setFont(new Font("Rockwell Nova", Font.BOLD | Font.ITALIC, 30));
 		panel_1.add(lblNewLabel_1);

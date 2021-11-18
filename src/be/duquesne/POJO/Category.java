@@ -96,7 +96,8 @@ private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDao
 	@Override
 	public String toString()
 	{
-		return "  " +  "[" + codeCat + "] " +""+this.type;//**no name 
+		return "  " +this.type;
+				//"  " +  "[" + codeCat + "] " +"  "+this.type;//**no name 
 	}
 	
 	

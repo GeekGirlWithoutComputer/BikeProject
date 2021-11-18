@@ -58,16 +58,16 @@ public class testList extends JFrame
 		contentPane.setLayout(null);
 		
 		sp_cm = new JComboBox<Category>();
-		sp_cm.setBounds(25, 25, 318, 48);
+		sp_cm.setBounds(10, 104, 318, 32);
 		contentPane.add(sp_cm);
 		
 		 	un = new JTextField();
-		    un.setBounds(10, 85, 264, 32);
+		    un.setBounds(10, 166, 264, 32);
 		    contentPane.add(un);
 		    un.setColumns(10);
 		    
 		    deux = new JTextField();
-		    deux.setBounds(10, 128, 264, 28);
+		    deux.setBounds(10, 222, 264, 28);
 		    contentPane.add(deux);
 		    deux.setColumns(10);
 		
@@ -108,15 +108,6 @@ public class testList extends JFrame
 	{
 		Category ct = new Category();
 		ct= (Category) sp_cm.getSelectedItem();
-		
-		
-		
-		
-		//deux.setText("no de psectacle :  "+Integer.toString(s.getId()));
-		
-			
-		
-		
 		un.setText("no  : "+ct.getCodeCat());
 		deux.setText("nom : "+ ct.getType());
 		

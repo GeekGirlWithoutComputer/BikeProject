@@ -20,6 +20,10 @@ public class Stroll
 	private Date dateOfDepartune;
 	private String nameStroll;
 	
+	public Stroll() 
+	{
+		
+	}
 	public Stroll( int numStroll,String placeOfDepartune, Double cost, String nameStroll, Date dateOfDepartune) 
 	{
 		

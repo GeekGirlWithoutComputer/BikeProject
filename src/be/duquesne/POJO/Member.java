@@ -18,6 +18,7 @@ public class Member extends Person
 	private Category cat;
 	private TypesVtt type;
 	private TypesMember typevelo;
+	private Car theCar;
 	
 	
 

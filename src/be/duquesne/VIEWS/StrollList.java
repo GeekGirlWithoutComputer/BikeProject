@@ -153,6 +153,14 @@ public class StrollList extends JFrame
 	 			}
 	 		});
 	 		panel_1.add(btnRetour);
+	 		
+	 		btnNewButton = new JButton("CHOISIR");
+	 		btnNewButton.addActionListener(new ActionListener() {
+	 			public void actionPerformed(ActionEvent e) {
+	 			}
+	 		});
+	 		btnNewButton.setBounds(264, 205, 143, 30);
+	 		panel_1.add(btnNewButton);
 			
 			activity = this;
 			
@@ -163,6 +171,7 @@ public class StrollList extends JFrame
 			
 	}
 	private List<Stroll> allS = new ArrayList<Stroll>();
+	private JButton btnNewButton;
 	public Stroll  createCombobox() 
 	{
 		Spp.addActionListener(new ActionListener() 
@@ -172,17 +181,12 @@ public class StrollList extends JFrame
 				activity.setId();
 			}
 		});
-		
-		
-		//JOptionPane.showMessageDialog(null, "taille radio ."+ size.toString());
+	
 		for (Stroll  sp: allS) 
 		{
 			Spp.addItem(sp);
 			
-		}		
-		// JOptionPane.showMessageDialog( null,"item id ."+currentSpectacle); // test
-		
-		;
+		};		
 	
 		return s =(Stroll) Spp.getSelectedItem();
 	}
@@ -191,18 +195,9 @@ public class StrollList extends JFrame
 	{
 	//selection de l item
 		s= (Stroll) Spp.getSelectedItem();
-	
-		
-		
 		libel.setText("nom de la balade  :  "+s.getNameStroll());
-		
-			
-		
-		
 		test.setText("NO : "+Integer.toString(s.getNumStroll()));
-		
-		genre.setText("lieux de depart : "+s.getPlaceOfDepartune());
-		 
+		genre.setText("lieux de depart : "+s.getPlaceOfDepartune()); 
 		txydescr.setText("prix  : "+s.getCost());
 		
 		

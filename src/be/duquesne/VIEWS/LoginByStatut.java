@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import be.duquesne.POJO.Member;
 import be.duquesne.POJO.Person;
+import be.duquesne.POJO.Responsible;
 import be.duquesne.POJO.Treasurer;
 
 public class LoginByStatut extends JFrame 
@@ -76,11 +77,11 @@ public class LoginByStatut extends JFrame
 		 * 
 		 * **********************************************************************************************************/
 		
-		JButton btnClient = new JButton("MEMBER");
-		btnClient.setForeground(UIManager.getColor("CheckBox.focus"));
-		btnClient.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
-		btnClient.setBackground(Color.DARK_GRAY);
-		btnClient.addActionListener(new ActionListener() 
+		JButton btnMember = new JButton("MEMBER");
+		btnMember.setForeground(UIManager.getColor("CheckBox.focus"));
+		btnMember.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnMember.setBackground(Color.DARK_GRAY);
+		btnMember.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -89,8 +90,8 @@ public class LoginByStatut extends JFrame
 				activity.dispose();
 			}
 		});
-		btnClient.setBounds(98, 168, 147, 65);
-		panel_1.add(btnClient);
+		btnMember.setBounds(98, 168, 147, 65);
+		panel_1.add(btnMember);
 		
 		
 		
@@ -123,8 +124,8 @@ public class LoginByStatut extends JFrame
 		lblNewLabel.setBounds(31, 17, 598, 72);
 		panel_1.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("TREASURER");
-		btnNewButton.addActionListener(new ActionListener() 
+		JButton btnTreasurer = new JButton("TREASURER");
+		btnTreasurer.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -133,11 +134,27 @@ public class LoginByStatut extends JFrame
 				activity.dispose();
 			}
 		});
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setForeground(UIManager.getColor("CheckBox.focus"));
-		btnNewButton.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton.setBounds(462, 168, 147, 65);
-		panel_1.add(btnNewButton);
+		btnTreasurer.setBackground(Color.DARK_GRAY);
+		btnTreasurer.setForeground(UIManager.getColor("CheckBox.focus"));
+		btnTreasurer.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnTreasurer.setBounds(462, 168, 147, 65);
+		panel_1.add(btnTreasurer);
+		
+		JButton btnResponsible = new JButton("RESPONSIBLE");
+		btnResponsible.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				Login page = new Login(Responsible.statut);
+				page.setVisible(true);
+				activity.dispose();
+			}
+		});
+		btnResponsible.setForeground(Color.BLACK);
+		btnResponsible.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnResponsible.setBackground(Color.DARK_GRAY);
+		btnResponsible.setBounds(273, 168, 147, 65);
+		panel_1.add(btnResponsible);
 		
 		
 		
